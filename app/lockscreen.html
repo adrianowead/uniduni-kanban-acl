@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>AdminLTE 3 | Lockscreen</title>
+
+        <!-- Google Font: Source Sans Pro -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+        />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="vendor/lte/plugins//fontawesome-free/css/all.min.css" />
+        <!-- Theme style -->
+        <link rel="stylesheet" href="vendor/lte/dist/css/adminlte.min.css" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon/favicon-16x16.png" />
+        <link rel="manifest" href="assets/img/icon/site.webmanifest" />
+        <link rel="mask-icon" href="assets/img/icon/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+    </head>
+    <body class="hold-transition lockscreen">
+        <!-- Automatic element centering -->
+        <div class="lockscreen-wrapper">
+            <div class="lockscreen-logo">
+                <a href="index.html"><b>Uni</b>DUNI</a>
+            </div>
+            <!-- User name -->
+            <div class="lockscreen-name" id="lockNome">User</div>
+
+            <!-- START LOCK SCREEN ITEM -->
+            <div class="lockscreen-item">
+                <!-- lockscreen image -->
+                <div class="lockscreen-image">
+                    <img src="assets/img/avatar.png" alt="User Image" id="lockAvatar" />
+                </div>
+                <!-- /.lockscreen-image -->
+
+                <!-- lockscreen credentials (contains the form) -->
+                <form class="lockscreen-credentials" id="formLock">
+                    <div class="input-group">
+                        <input type="password" class="form-control" placeholder="senha" id="senha" />
+
+                        <div class="input-group-append">
+                            <button type="submit" class="btn">
+                                <i class="fas fa-arrow-right text-muted"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <!-- /.lockscreen credentials -->
+            </div>
+            <!-- /.lockscreen-item -->
+            <p id="aviso" class="text-center text-danger text-bold"></p>
+
+            <div class="help-block text-center">Digite sua senha para recuperar a sessão</div>
+            <div class="text-center">
+                <a href="javascript:LockScreen.anotherUser();">Ou entre com um usuário diferente</a>
+            </div>
+            <div class="lockscreen-footer text-center">
+                Copyright &copy; 2022
+                <b><a href="javascript:;" class="text-black">UniDUNI</a></b
+                ><br />
+                All rights reserved
+            </div>
+        </div>
+        <!-- /.center -->
+
+        <!-- jQuery -->
+        <script src="vendor/lte/plugins//jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="vendor/lte/plugins//bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- app -->
+        <script src="assets/app/lockscreen.js"></script>
+    </body>
+</html>

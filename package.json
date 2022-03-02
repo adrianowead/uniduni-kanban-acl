@@ -1,0 +1,35 @@
+{
+  "name": "uniduni-kanban",
+  "version": "1.0.0",
+  "description": "Gerenciador de Tarefas - UniDUNI",
+  "main": "app/app.js",
+  "scripts": {
+    "start": "electron --disable-gpu-sandbox ."
+  },
+  "author": "Adriano Maciel",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^17.1.0",
+    "electron-builder": "^22.14.13"
+  },
+  "dependencies": {},
+  "build": {
+    "directories": {
+      "app": "./"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "linux": {
+      "target": "deb"
+    }
+  }
+}
