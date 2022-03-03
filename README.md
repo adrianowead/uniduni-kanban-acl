@@ -22,13 +22,12 @@ npm install -g yarn@latest
 
 Para compilar a aplicação, execute algum dos comandos abaixo, na raíz da aplicação:
 
-_Compilar para Windows 64 bits_
+_Compilar_ com **yarn**
 ```shell
-yarn winx64
+yarn build
 ```
 
-
-
+_Compilar_ com **npm**
 ```shell
-npx electron-packager ./ "uniduni" --platform=linux,win32 --arch=x64 --app-copyright="UniDUNI - 2022" --app-version=1.0.0 --icon=../assets/img/logo.png --out=build --prune=true --overwrite --asar
+npm run build
 ```

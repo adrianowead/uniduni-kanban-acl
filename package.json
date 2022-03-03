@@ -4,7 +4,8 @@
   "description": "Gerenciador de Tarefas - UniDUNI",
   "main": "app/app.js",
   "scripts": {
-    "start": "electron --disable-gpu-sandbox ."
+    "start": "electron --disable-gpu-sandbox .",
+    "build": "electron-builder"
   },
   "author": "Adriano Maciel",
   "license": "MIT",
@@ -12,24 +13,5 @@
     "electron": "^17.1.0",
     "electron-builder": "^22.14.13"
   },
-  "dependencies": {},
-  "build": {
-    "directories": {
-      "app": "./"
-    },
-    "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ]
-    },
-    "linux": {
-      "target": "deb"
-    }
-  }
+  "dependencies": {}
 }

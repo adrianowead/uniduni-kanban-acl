@@ -1,0 +1,40 @@
+productName: "UniDUNI Kanban"
+
+asar: true
+
+asarUnpack:
+  - "**/*.node"
+
+directories:
+  output: "dist/"
+
+files:
+  - "**/*"
+  - "!dist/*"
+  - "!build/*"
+  - "!electron-builder.yml"
+  - "!README.md"
+  - "!yarn.lock"
+
+win:
+  artifactName: "UniDUNI-${arch}-win.${ext}"
+  icon: "build/icon.ico"
+  legalTrademarks: "UniDUNI® 2022"
+  target:
+    - target: "nsis"
+      arch: [ia32, x64]
+  requestedExecutionLevel: "asInvoker"
+
+nsis:
+  deleteAppDataOnUninstall: true
+  installerIcon: "build/installerIcon.ico"
+  uninstallerIcon: "build/uninstallerIcon.ico"
+
+linux:
+  artifactName: "UniDUNI-${arch}-linux.${ext}"
+  executableName: "UniDUNI"
+  icon: "build/icon.ico"
+  target:
+    - target: "AppImage"
+    - target: "deb"
+    - target: "tar.gz"
