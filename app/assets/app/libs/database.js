@@ -255,6 +255,26 @@ class Database {
         });
     }
 
+    /**
+     * Deletar Usuário
+     */
+    async deleteUserById(userId) {
+        return new Promise((resolve, reject) => {
+            this.#db.transaction(tx => {
+                tx.executeSql(
+                    "DELETE FROM tb_users WHERE id = ?",
+                    [userId],
+                    (_, res) => {
+                        resolve(res);
+                    },
+                    (_, error) => {
+                        reject(error);
+                    }
+                );
+            });
+        });
+    }
+
     /*
 ################################################
 # Grupo relacionado ao gerenciamento de perfil #
@@ -361,6 +381,26 @@ class Database {
                         resolve(res);
                     },
                     (tx, error) => {
+                        reject(error);
+                    }
+                );
+            });
+        });
+    }
+
+    /**
+     * Deletar tarefas do usuário
+     */
+     async deleteAllTasksAssignedToUserId(userId) {
+        return new Promise((resolve, reject) => {
+            this.#db.transaction(tx => {
+                tx.executeSql(
+                    "DELETE FROM tb_kanban WHERE assigned_to_user_id = ?",
+                    [userId],
+                    (_, res) => {
+                        resolve(res);
+                    },
+                    (_, error) => {
                         reject(error);
                     }
                 );

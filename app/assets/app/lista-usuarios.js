@@ -2,7 +2,7 @@
 
 class ListaUsuarios {
     #templateCard = `
-<div class="col-md-4">
+<div class="col-md-4" id="profile-%user:id%">
     <div class="card card-primary card-outline">
       <div class="card-body box-profile">
         <div class="text-center">
@@ -32,9 +32,19 @@ class ListaUsuarios {
           </li>
         </ul>
 
-        <a href="perfil.html?id=%user:id%" class="btn btn-primary btn-block"
-          ><b>Editar</b></a
-        >
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="perfil.html?id=%user:id%" class="btn btn-primary btn-block"><b>Editar</b></a>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-block btn-danger btnDeletar" data-user-nome="%user:nome%" data-user-id="%user:id%">
+                    Excluir
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- /.card-body -->
     </div>
@@ -44,6 +54,8 @@ class ListaUsuarios {
 
     constructor() {
         this.#loadDependency();
+
+        this.#bindDelUser();
     }
 
     /**
@@ -128,6 +140,26 @@ class ListaUsuarios {
         html = html.replace(/%user:finalizadoCount%/g, countKanban.finalizado);
 
         return html;
+    }
+
+    /**
+     * Escuta ação de deletar usuário
+     */
+    #bindDelUser() {
+        $(document).on("click", ".btnDeletar", (e) => {
+            var btn = e.target;
+            var nome = btn.getAttribute('data-user-nome');
+            var id = btn.getAttribute('data-user-id');
+
+            var msg = `Deseja realmente excluir o usuário (${nome}) e TODAS as suas tarefas? Esta ação não pode ser desfeita`;
+
+            if(confirm(msg)) {
+                $(`#profile-${id}`).fadeOut();
+
+                DB.deleteUserById(id);
+                DB.deleteAllTasksAssignedToUserId(id);
+            }
+        });
     }
 }
 
