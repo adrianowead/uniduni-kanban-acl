@@ -8,9 +8,6 @@ const createWindow = () => {
     const win = new BrowserWindow({
         backgroundColor: "#fff",
         icon: path.join(__dirname, "assets", "img", "logo.png"),// customizando o ícone da janela
-        webPreferences: {
-            preload: path.join(__dirname, "preload.js"), // resolvendo caminho do preload
-        },
     });
 
     // carregando arquivo inicial da aplicação
